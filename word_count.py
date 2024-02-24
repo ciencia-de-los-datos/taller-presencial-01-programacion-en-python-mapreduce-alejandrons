@@ -83,7 +83,8 @@ def reducer(sequence):
     for k,v in sequence:
         if k not in reduced_list.keys():
             reduced_list[k] = v
-        reduced_list[k] += v
+        else:
+            reduced_list[k] += v
 
     reduced_list = [
         (k,reduced_list[k])
@@ -138,7 +139,7 @@ def job(input_directory, output_directory):
     sequence = reducer(sequence)
     create_ouptput_directory(output_directory)
     save_output(output_directory, sequence)
-    create_marker(output_directory)
+    create_marker("output")
 
 if __name__ == "__main__":
     job(
